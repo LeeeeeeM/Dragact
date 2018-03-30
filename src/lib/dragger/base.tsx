@@ -297,6 +297,9 @@ export class Dragger extends React.Component<DraggerProps, {}> {
     }
 
     onDragEnd = (event: any) => {
+        if (!event.nativeEvent) {
+            return;
+        }
         /** 取消用户选择限制，用户可以重新选择 */
         clearInterval(timer);
         speed = 0;
